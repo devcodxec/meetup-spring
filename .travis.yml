@@ -12,8 +12,8 @@ notifications:
 services:
 - mysql
 script:
+- mvn verify
 #Test unitario y de integracion en perfil DEV, con cobertura
 - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
-
 # SONARCLOUD PRODUCTOS
-#- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=dlandyr-github -Dsonar.login=$USUARIOS
+- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=devcodxec -Dsonar.login=$MEETUP
