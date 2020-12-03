@@ -2,7 +2,9 @@ package com.proyecto.meetup.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Grupo implements Serializable {
@@ -29,8 +31,11 @@ public class Grupo implements Serializable {
     @JoinColumn(name="Id_Usuario")
     private Usuario usuario;
 
-    public Grupo(){
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "grupo", cascade = CascadeType.ALL)
+    private List<Miembro> miembros;
 
+    public Grupo(){
+        this.miembros=new ArrayList<>();
     }
 
     public Long getIdGrupo() {

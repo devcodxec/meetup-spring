@@ -2,6 +2,7 @@ package com.proyecto.meetup.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,8 @@ public class Tema implements Serializable {
     private List<TemaUsuario> temaUsuarios;
 
     public Tema(){
-
+        this.grupos=new ArrayList<>();
+        this.temaUsuarios=new ArrayList<>();
     }
 
     public Long getIdTema() {

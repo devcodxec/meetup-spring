@@ -2,6 +2,8 @@ package com.proyecto.meetup.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Usuario implements Serializable {
@@ -30,16 +32,23 @@ public class Usuario implements Serializable {
     @Column(name="Direccion")
     private String direccion;
     @Column(name="Latitud")
-    private double latitud;
+    private Double latitud;
     @Column(name="Longitud")
-    private double longitud;
+    private Double longitud;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="Id_Ciudad")
     private Ciudad ciudad;
 
-    public Usuario(){
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Grupo> grupos;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<TemaUsuario> temaUsuarios;
+
+    public Usuario(){
+        this.grupos=new ArrayList<>();
+        this.temaUsuarios=new ArrayList<>();
     }
 
     public Long getId_Usuario() {
