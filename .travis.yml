@@ -1,6 +1,8 @@
 language: java
 jdk:
-- oraclejdk8
+- openjdk8
+dist:
+  trust
 branches:
   only:
   - master
