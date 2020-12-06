@@ -17,13 +17,12 @@ public class TipoMensaje implements Serializable {
     private Long idTipoMensaje;
     @Column(name="Descripcion")
     private String descripcion;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoMensaje", cascade = CascadeType.ALL)
-    private List<Mensaje> mensajes;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoMensaje", cascade = CascadeType.ALL)
+//    private List<Mensaje> mensajes;
 
     public TipoMensaje() {
-        this.mensajes=new ArrayList<>();
+        //this.mensajes=new ArrayList<>();
     }
-
 
     public Long getIdTipoMensaje() {
         return idTipoMensaje;
@@ -41,20 +40,19 @@ public class TipoMensaje implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public List<Mensaje> getMensajes() {
-        return mensajes;
-    }
-
-    public void setMensajes(List<Mensaje> mensajes) {
-        this.mensajes = mensajes;
-    }
+//    public List<Mensaje> getMensajes() {
+//        return mensajes;
+//    }
+//
+//    public void setMensajes(List<Mensaje> mensajes) {
+//        this.mensajes = mensajes;
+//    }
 
     @Override
     public String toString() {
         return "TipoMensaje{" +
                 "idTipoMensaje=" + idTipoMensaje +
                 ", descripcion='" + descripcion + '\'' +
-                ", mensajes=" + mensajes +
                 '}';
     }
 }
