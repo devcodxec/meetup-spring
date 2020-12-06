@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "Tipo_Mensaje")
 public class TipoMensaje implements Serializable {
 
     private static final long serialVersionUID = 1L;

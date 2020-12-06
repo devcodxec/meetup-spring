@@ -5,19 +5,19 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Table(name="Tema_Usuario")
 public class TemaUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Id_TemaUsuario")
     private Long idTemaUsuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Id_Tema")
     private Tema tema;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Id_Usuario")
     private Usuario usuario;
 
     public TemaUsuario(){
