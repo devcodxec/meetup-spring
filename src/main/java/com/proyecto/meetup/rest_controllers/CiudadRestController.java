@@ -58,7 +58,7 @@ public class CiudadRestController {
             return new ResponseEntity<Map<String,Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         response.put("mensaje", "La ciudad ha sido creada con éxito!");
-        response.put("cliente", crearCiudad);
+        response.put("ciudad", crearCiudad);
         return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
     }
 
@@ -81,7 +81,7 @@ public class CiudadRestController {
             return new ResponseEntity<Map<String,Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         response.put("mensaje", "La ciudad ha sido modificada con éxito!");
-        response.put("cliente", ciudadUpdate);
+        response.put("ciudad", ciudadUpdate);
         return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
     }
 
