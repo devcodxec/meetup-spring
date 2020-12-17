@@ -36,27 +36,28 @@ public class Usuario implements Serializable {
     @Column(name="Longitud")
     private Double longitud;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Id_Ciudad")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Id_Ciudad")
     private Ciudad ciudad;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Grupo> grupos;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<TemaUsuario> temaUsuarios;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+//    private List<Grupo> grupos;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+//    private List<TemaUsuario> temaUsuarios;
 
     public Usuario(){
-        this.grupos=new ArrayList<>();
-        this.temaUsuarios=new ArrayList<>();
+//        this.grupos=new ArrayList<>();
+//        this.temaUsuarios=new ArrayList<>();
     }
 
-    public Long getId_Usuario() {
+
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setId_Usuario(Long idUsuario) {
-        idUsuario = idUsuario;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombres() {
@@ -123,19 +124,19 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
     }
 
-    public double getLatitud() {
+    public Double getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(double latitud) {
+    public void setLatitud(Double latitud) {
         this.latitud = latitud;
     }
 
-    public double getLongitud() {
+    public Double getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(double longitud) {
+    public void setLongitud(Double longitud) {
         this.longitud = longitud;
     }
 
@@ -146,6 +147,22 @@ public class Usuario implements Serializable {
     public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
+
+//    public List<Grupo> getGrupos() {
+//        return grupos;
+//    }
+//
+//    public void setGrupos(List<Grupo> grupos) {
+//        this.grupos = grupos;
+//    }
+//
+//    public List<TemaUsuario> getTemaUsuarios() {
+//        return temaUsuarios;
+//    }
+//
+//    public void setTemaUsuarios(List<TemaUsuario> temaUsuarios) {
+//        this.temaUsuarios = temaUsuarios;
+//    }
 
     @Override
     public String toString() {
