@@ -86,7 +86,7 @@ public class UsuarioRestController {
             usuarioActual.setUsername(usuario.getUsername());
             usuarioActual.setPassword(usuario.getPassword());
             usuarioActual.setEmail(usuario.getEmail());
-            usuarioActual.setNickname(usuario.getNickname());
+            usuarioActual.setFechaNacimiento(usuario.getFechaNacimiento());
             usuarioActual.setTelefono(usuario.getTelefono());
             usuarioActual.setDireccion(usuario.getDireccion());
             usuarioActual.setLatitud(usuario.getLatitud());

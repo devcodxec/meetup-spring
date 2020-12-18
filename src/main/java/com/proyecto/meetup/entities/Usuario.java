@@ -3,6 +3,7 @@ package com.proyecto.meetup.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -12,32 +13,24 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Id_Usuario")
+    @Column(name="id_usuario")
     private Long idUsuario;
 
-    @Column(name="Nombres")
     private String nombres;
-    @Column(name="Apellidos")
     private String apellidos;
-    @Column(name = "Username")
     private String username;
-    @Column(name="Password")
     private String password;
-    @Column(name="Email")
     private String email;
-    @Column(name="Nickname")
-    private String nickname;
-    @Column(name="Telefono")
+    @Column(name="fecha_nacimiento")
+    @Temporal(TemporalType.DATE)
+    private Date fechaNacimiento;
     private String telefono;
-    @Column(name="Direccion")
     private String direccion;
-    @Column(name="Latitud")
     private Double latitud;
-    @Column(name="Longitud")
     private Double longitud;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Id_Ciudad")
+    @JoinColumn(name = "id_ciudad")
     private Ciudad ciudad;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -50,7 +43,6 @@ public class Usuario implements Serializable {
 //        this.grupos=new ArrayList<>();
 //        this.temaUsuarios=new ArrayList<>();
     }
-
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -100,12 +92,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public String getNickname() {
-        return nickname;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getTelefono() {
@@ -173,7 +165,7 @@ public class Usuario implements Serializable {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", nickname='" + nickname + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
                 ", telefono='" + telefono + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", latitud=" + latitud +

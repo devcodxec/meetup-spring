@@ -25,7 +25,7 @@ public class UsuarioController {
         List<UsuarioMinimoDto> dtos = new ArrayList<>();
 
         for(Usuario usuario : usuarios){
-           dtos.add(new UsuarioMinimoDto(usuario.getIdUsuario(),usuario.getUsername()));
+           dtos.add(new UsuarioMinimoDto(usuario.getIdUsuario(),usuario.getUsername(),usuario.getEmail(),usuario.getPassword(),usuario.getFechaNacimiento()));
         }
         return  dtos;
     }
