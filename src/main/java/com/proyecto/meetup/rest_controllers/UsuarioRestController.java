@@ -70,6 +70,22 @@ public class UsuarioRestController {
         return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
     }
 
+    @PostMapping("/usuariosMin")
+    public ResponseEntity<?> crearUsuarioMin(@RequestBody UsuarioMinimoDto usuarioMinimoDtou){
+        UsuarioMinimoDto crearUsuarioMin=null;
+        Map<String, Object> response = new HashMap<>();
+        try {
+            crearUsuarioMin =usuarioController.crearUsuarioMin(usuarioMinimoDtou);
+        }catch(DataAccessException e) {
+            response.put("mensaje", "Error al realizar el insert en la base de datos");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String,Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        response.put("mensaje", "El usuarioMin ha sido creado con éxito!");
+        response.put("usuario", crearUsuarioMin);
+        return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
+    }
+
     @PutMapping("/usuario/{id}")
     public ResponseEntity<?> modificarUsuarioId(@RequestBody Usuario  usuario, @PathVariable Long id){
         Usuario usuarioActual = usuarioController.listarUsuarioId(id);

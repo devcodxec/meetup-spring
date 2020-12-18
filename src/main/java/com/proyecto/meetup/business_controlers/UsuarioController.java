@@ -40,6 +40,13 @@ public class UsuarioController {
         return usuario;
     }
 
+    public UsuarioMinimoDto crearUsuarioMin(UsuarioMinimoDto usuarioMinimoDto){
+        //Pendiente validaciones
+        Usuario usuarioMin = Usuario.builder().username(usuarioMinimoDto.getUsername()).email(usuarioMinimoDto.getEmail()).password(usuarioMinimoDto.getPassword()).fechaNacimiento(usuarioMinimoDto.getFechaNacimiento()).build();
+        this.usuarioDao.save(usuarioMin);
+        return new UsuarioMinimoDto(usuarioMin.getIdUsuario(),usuarioMin.getUsername(),usuarioMin.getEmail(),usuarioMin.getPassword(),usuarioMin.getFechaNacimiento());
+    }
+
     public Usuario modificarUsuarioId(Usuario usuario){
         //Pendiente validaciones
         this.usuarioDao.save(usuario);

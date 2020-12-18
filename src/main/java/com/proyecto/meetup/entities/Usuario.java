@@ -1,10 +1,14 @@
 package com.proyecto.meetup.entities;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Usuario implements Serializable {
@@ -42,6 +46,10 @@ public class Usuario implements Serializable {
     public Usuario(){
 //        this.grupos=new ArrayList<>();
 //        this.temaUsuarios=new ArrayList<>();
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     public Long getIdUsuario() {
@@ -172,5 +180,72 @@ public class Usuario implements Serializable {
                 ", longitud=" + longitud +
                 ", ciudad=" + ciudad +
                 '}';
+    }
+
+    public static class Builder {
+        private Usuario usuario;
+
+        private Builder() {
+            this.usuario = new Usuario();
+        }
+
+        public Builder idUsuario(Long idUsuario) {
+            this.usuario.idUsuario = idUsuario;
+            return this;
+        }
+
+        public Builder nombres(String nombres) {
+            this.usuario.nombres = nombres;
+            return this;
+        }
+
+        public Builder apellidos(String apellidos) {
+            this.usuario.apellidos = apellidos;
+            return this;
+        }
+
+        public Builder username(String username) {
+            this.usuario.username = username;
+            return this;
+        }
+
+        public Builder password(String password) {
+            this.usuario.password = password;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.usuario.email = email;
+            return this;
+        }
+
+        public Builder fechaNacimiento(Date fechaNacimiento) {
+            this.usuario.fechaNacimiento = fechaNacimiento;
+            return this;
+        }
+
+        public Builder telefono(String telefono) {
+            this.usuario.telefono = telefono;
+            return this;
+        }
+
+        public Builder direccion(String direccion) {
+            this.usuario.direccion = direccion;
+            return this;
+        }
+
+        public Builder latitud(Double latitud) {
+            this.usuario.latitud = latitud;
+            return this;
+        }
+
+        public Builder longitud(Double longitud) {
+            this.usuario.longitud = longitud;
+            return this;
+        }
+
+        public Usuario build() {
+            return this.usuario;
+        }
     }
 }
