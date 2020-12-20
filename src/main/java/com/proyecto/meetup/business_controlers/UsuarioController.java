@@ -25,7 +25,7 @@ public class UsuarioController {
         List<UsuarioMinimoDto> dtos = new ArrayList<>();
 
         for(Usuario usuario : usuarios){
-           dtos.add(new UsuarioMinimoDto(usuario.getIdUsuario(),usuario.getUsername(),usuario.getEmail(),usuario.getPassword(),usuario.getFechaNacimiento()));
+           dtos.add(new UsuarioMinimoDto(usuario.getIdUsuario(),usuario.getUsername(),usuario.getEmail(),usuario.getPassword(),usuario.getFechaNacimiento(),usuario.getCiudad()));
         }
         return  dtos;
     }
@@ -42,9 +42,9 @@ public class UsuarioController {
 
     public UsuarioMinimoDto crearUsuarioMin(UsuarioMinimoDto usuarioMinimoDto){
         //Pendiente validaciones
-        Usuario usuarioMin = Usuario.builder().username(usuarioMinimoDto.getUsername()).email(usuarioMinimoDto.getEmail()).password(usuarioMinimoDto.getPassword()).fechaNacimiento(usuarioMinimoDto.getFechaNacimiento()).build();
+        Usuario usuarioMin = Usuario.builder().username(usuarioMinimoDto.getUsername()).email(usuarioMinimoDto.getEmail()).password(usuarioMinimoDto.getPassword()).fechaNacimiento(usuarioMinimoDto.getFechaNacimiento()).ciudad(usuarioMinimoDto.getCiudad()).build();
         this.usuarioDao.save(usuarioMin);
-        return new UsuarioMinimoDto(usuarioMin.getIdUsuario(),usuarioMin.getUsername(),usuarioMin.getEmail(),usuarioMin.getPassword(),usuarioMin.getFechaNacimiento());
+        return new UsuarioMinimoDto(usuarioMin.getIdUsuario(),usuarioMin.getUsername(),usuarioMin.getEmail(),usuarioMin.getPassword(),usuarioMin.getFechaNacimiento(),usuarioMin.getCiudad());
     }
 
     public Usuario modificarUsuarioId(Usuario usuario){

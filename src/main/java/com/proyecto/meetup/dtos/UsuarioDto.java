@@ -1,6 +1,7 @@
 package com.proyecto.meetup.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.proyecto.meetup.entities.Ciudad;
 import com.proyecto.meetup.entities.Usuario;
 
 import java.util.Date;
@@ -21,8 +22,8 @@ public class UsuarioDto extends  UsuarioMinimoDto {
 
     private Double longitud;
 
-    public UsuarioDto(Long idUsuario, String username, String email, String password, Date fechaNacimiento, String nombres, String apellidos, String telefono, String direccion, Double latitud, Double longitud) {
-        super(idUsuario, username, email, password, fechaNacimiento);
+    public UsuarioDto(Long idUsuario, String username, String email, String password, Date fechaNacimiento, Ciudad ciudad, String nombres, String apellidos, String telefono, String direccion, Double latitud, Double longitud) {
+        super(idUsuario, username, email, password, fechaNacimiento, ciudad);
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.telefono = telefono;

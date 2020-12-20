@@ -244,6 +244,11 @@ public class Usuario implements Serializable {
             return this;
         }
 
+        public Builder ciudad(Ciudad ciudad) {
+            this.usuario.ciudad = ciudad;
+            return this;
+        }
+
         public Usuario build() {
             return this.usuario;
         }

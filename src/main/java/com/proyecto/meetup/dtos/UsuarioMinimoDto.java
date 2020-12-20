@@ -1,5 +1,6 @@
 package com.proyecto.meetup.dtos;
 
+import com.proyecto.meetup.entities.Ciudad;
 import com.proyecto.meetup.entities.Usuario;
 import com.sun.istack.NotNull;
 
@@ -19,13 +20,16 @@ public class UsuarioMinimoDto {
 
     private Date fechaNacimiento;
 
-    public UsuarioMinimoDto(Long idUsuario, String username, String email, String password, Date fechaNacimiento) {
+    private Ciudad ciudad;
+
+    public UsuarioMinimoDto(Long idUsuario, String username, String email, String password, Date fechaNacimiento, Ciudad ciudad) {
         super();
         this.idUsuario = idUsuario;
         this.username = username;
         this.email = email;
         this.password = password;
         this.fechaNacimiento = fechaNacimiento;
+        this.ciudad = ciudad;
     }
 
     public Long getIdUsuario() {
@@ -68,6 +72,14 @@ public class UsuarioMinimoDto {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
     @Override
     public String toString() {
         return "UsuarioMinimoDto{" +
@@ -76,6 +88,7 @@ public class UsuarioMinimoDto {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
+                ", ciudad=" + ciudad +
                 '}';
     }
 }
