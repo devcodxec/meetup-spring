@@ -26,6 +26,11 @@ public class CiudadRestController {
         return this.ciudadController.listarCiudades();
     };
 
+    @GetMapping("/ciudades/filtrar-ciudades/{nombre}")
+    public List<Ciudad> buscarCiudadPorNombre(@PathVariable String nombre) {
+        return this.ciudadController.buscarCiudadPorNombre(nombre);
+    };
+
     @GetMapping("/ciudades/{id}")
     public ResponseEntity<?> listarCiudadId(@PathVariable Long id){
         Ciudad ciudad = null;

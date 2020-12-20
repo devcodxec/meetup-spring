@@ -16,6 +16,10 @@ public class CiudadController {
         return this.ciudadDao.findAll();
     }
 
+    public List<Ciudad> buscarCiudadPorNombre(String nombre){
+        return this.ciudadDao.findByNombreContainingIgnoreCase(nombre);
+    }
+
     public Ciudad listarCiudadId(Long id) {
         return ciudadDao.findById(id).orElse(null);
     }
