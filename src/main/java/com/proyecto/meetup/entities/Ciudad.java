@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Ciudad implements Serializable {
@@ -18,11 +19,11 @@ public class Ciudad implements Serializable {
     @Column(name="Nombre")
     private String nombre;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudad", cascade = CascadeType.ALL)
-    private List<Usuario> usuarios;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudad", cascade = CascadeType.ALL)
+//    private List<Usuario> usuarios;
 
-    public Ciudad() {
-        this.usuarios=new ArrayList<>();
+    public Ciudad(){
+
     }
 
     public Long getIdCiudad() {
@@ -41,20 +42,19 @@ public class Ciudad implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
+//    public List<Usuario> getUsuarios() {
+//        return usuarios;
+//    }
+//
+//    public void setUsuarios(List<Usuario> usuarios) {
+//        this.usuarios = usuarios;
+//    }
 
     @Override
     public String toString() {
         return "Ciudad{" +
                 "idCiudad=" + idCiudad +
                 ", nombre='" + nombre + '\'' +
-                ", usuarios=" + usuarios +
                 '}';
     }
 }
